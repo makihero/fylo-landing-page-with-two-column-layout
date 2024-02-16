@@ -1,0 +1,318 @@
+// sass scss/style.scss style.css --watch
+
+@use 'variables' as var;
+@use 'initial';
+@use 'mixins';
+@use 'card';
+
+.main-container {
+    width: 375px;
+    margin: auto;
+    @include mixins.desktop;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 0;
+    margin-bottom: 100px;
+
+    &__logo {
+        width: 80px;
+        height: 25px;
+        @include mixins.desktop(170px);
+    }
+
+    &__list {
+        display: flex;
+        list-style: none;
+        gap: 24px;
+        font-size: 0.8em;
+        @include mixins.desktop(274px, unset, 1em);
+        a {
+            text-decoration: none;
+            font-weight: 700;
+            color: var.$DesaturatedBlue;
+            &:hover {
+                color: var.$BrightBlue;
+            }
+        }
+    }
+}
+
+.header {
+    padding: 0 24px 182px;
+    background-image: url('../images/bg-curve-mobile.svg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100%;
+
+    &__illustration {
+        width: 100%;
+        margin-bottom: 40px;
+        @include mixins.img-desktop;
+    }
+    .header-content {
+        
+        &__title {
+            font-family: var.$HeadingFont;
+            font-weight: 700;
+            font-size: 1.5em;
+            line-height: 1.2em;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        &__text {
+            color: var.$DesaturatedBlue;
+            font-size: 0.95em;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        &__form {
+            @include mixins.form;
+        }
+    }
+}
+
+@media (min-width: 1300px) {
+    .header {
+        background-image: url('../images/bg-curve-desktop.svg');
+        @include mixins.section-desktop(38px);
+        .header-content {
+            width: 590px;
+            &__title {
+                font-size: 2.5em;
+                text-align: left;
+            }
+
+            &__text {
+                text-align: left;
+                font-size: 1.1em;
+            }
+
+            &__form {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 16px;
+                width: 540px;
+            }
+
+            &__form input {
+                flex-grow: 1;
+            }
+        }
+
+    }
+}
+
+.details {
+    padding: 0 24px 100px;
+    background-color: var.$LightGrayishBlue;
+    @include mixins.section-desktop(65px);
+
+    &__illustration {
+        width: 100%;
+        margin-bottom: 40px;
+        @include mixins.img-desktop;
+    }
+
+    .details-content {
+        
+        &__title {
+            font-family: var.$HeadingFont;
+            font-weight: 700;
+            font-size: 1em;
+            line-height: 1.2em;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        &__text {
+            color: var.$DesaturatedBlue;
+            font-size: 0.86em;
+            margin-bottom: 24px;
+        }
+
+        &__link {
+            display: block;
+            color: var.$ModerateCyan;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+    }
+}
+
+@media (min-width: 1300px) {
+    .details {
+        height: 677px;
+
+        &__illustration {
+            width: 50%;
+        }
+
+        .details-content {
+
+            &__title {
+                text-align: left;
+                font-size: 2.1em;
+            }
+
+            &__text {
+                width: 520px;
+                font-size: 1.1em;
+                line-height: 1.5em;
+            }
+
+            &__link {
+                text-align: left;
+                margin-bottom: 40px;
+            }
+
+            .card {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.early-access {
+    background-color: var.$DesaturatedBlue;
+    padding: 40px;
+    text-align: center;
+    @include mixins.section-desktop(244px, false);
+
+    &__title {
+        font-family: var.$HeadingFont;
+        font-weight: 700;
+        font-size: 1.5em;
+        line-height: 1.2em;
+        color: var.$LightGrayishBlue;
+        margin-bottom: 24px;
+    }
+
+    &__text {
+        color: var.$LightGray;
+        font-size: 0.9em;
+        margin-bottom: 24px;
+    }
+
+    &__form {
+        @include mixins.form;
+        width: 250px;
+        margin: 0 auto;
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (min-width: 1300px) {
+    .early-access {
+
+        &__title {
+            font-size: 2em;
+            text-align: left;
+        }
+
+        &__text {
+            text-align: left;
+            width: 450px;
+        }
+
+        &__form {
+            width: 450px;
+
+            input[type="submit"] {
+                width: 50%;
+                
+            }
+        }
+    }
+}
+
+.footer {
+    background-color: var.$DarkBlue;
+    padding: 40px 24px;
+
+    &__logo {
+        width: 120px;
+        margin-bottom: 24px;
+    }
+
+    &__contact {
+        width: 250px;
+        margin-bottom: 10px;
+
+        img {
+            width: 14px;
+        }
+        a {
+            color: var.$LightGray;
+            text-decoration: none;
+            margin-left: 10px;
+            font-size: 0.9em;
+            &:hover {
+                color: var.$BrightBlue;
+            }
+        }
+    }
+
+    &__list {
+        padding-bottom: 24px;
+
+        li {
+            margin-bottom: 5px;
+
+            a {
+                color: var.$LightGray;
+                text-decoration: none;
+                font-size: 0.9em;
+
+                &:hover {
+                    color: var.$BrightBlue;
+                }
+            }
+        }
+    }
+
+    &__social {
+        color: var.$LightGray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+    }
+    &__social-icons {
+        border: 1px solid var.$LightGray;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: grid;
+        place-items: center;
+
+        &:hover {
+            border: 1px solid var.$BrightBlue;
+            color: var.$BrightBlue;
+            cursor: pointer;
+        }
+    }
+}
+
+@media (min-width: 1300px) {
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px 125px;
+        align-items: baseline;
+    }
+}
+
+
+
+
+
+

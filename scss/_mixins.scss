@@ -1,0 +1,66 @@
+@use 'variables' as var;
+
+@mixin desktop ($width: 1300px, $height: unset, $font: unset) {
+    @media (min-width: 1300px) {
+            width: $width;
+            height: $height;
+            font-size: $font;
+    }
+}
+
+@mixin form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
+        
+
+        & input {
+            height: 40px;
+            border: 1px solid var.$LightGray;
+            border-radius: 4px;
+            padding: 0 16px;
+            font-family: var.$BodyFont;
+        }
+
+        & input[type="email"] {
+            font-weight: 400;
+            font-size: 0.9em;
+            border: 1px solid var.$DesaturatedBlue;
+        }
+
+        & input[type="email"]::placeholder {
+            color: var.$LightGray;
+        }
+
+        & input[type="submit"] {
+            background-color: var.$BrightBlue;
+            border: none;
+            color: var.$LightGrayishBlue;
+            font-weight: 400;
+            font-size: 0.9em;
+            box-shadow: 0px 4px 7px -1px rgba(0, 0, 0, 0.11);
+            &:hover {
+                cursor: pointer;
+                filter: brightness(120%);
+    
+        }
+    }
+}
+
+@mixin img-desktop {
+    @media (min-width: 1300px) {
+        width: 50%;
+    }
+}
+
+@mixin section-desktop($gap, $direction: true) {
+    @media (min-width: 1300px) {
+        display: flex;
+        @if $direction {
+            flex-direction: row-reverse;
+        }
+        align-items: center;
+        gap: $gap;
+    }
+}

@@ -1,0 +1,42 @@
+@use 'variables' as var;
+
+.card {
+    background-color: var.$White;
+    width: 286px;
+    height: 175px;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0px 4px 15px -5px rgba(0, 0, 0, 0.15);
+    margin: auto;
+
+    &__text {
+        color: var.$DesaturatedBlue;
+        font-size: 0.67em;
+        margin-bottom: 24px;
+        font-weight: 400;
+    }
+
+    .avatar-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &__avatar {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+        }
+
+        &__name {
+            font-weight: 700;
+            font-size: 0.67em;
+        }
+
+        &__job {
+            font-size: 0.6em;
+            font-weight: 400;
+        }
+    }
+
+}
